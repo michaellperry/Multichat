@@ -11,7 +11,7 @@ namespace Multichat
             get
             {
                 string address = "https://api.facetedworlds.com/correspondence_server_web/bin";
-                string apiKey = "<<Your API key>>";
+                string apiKey = "D1920D309A4E43EB85BD14833AFEF7E8";
 				int timeoutSeconds = 30;
                 return new HTTPConfiguration(address, "Multichat", apiKey, timeoutSeconds);
             }
