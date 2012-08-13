@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using UpdateControls.XAML;
+using Multichat.Models;
 
 namespace Multichat.ViewModels
 {
@@ -17,7 +18,9 @@ namespace Multichat.ViewModels
             _synchronizationService = new SynchronizationService();
             if (!DesignerProperties.GetIsInDesignMode(new DependencyObject()))
                 _synchronizationService.Initialize();
-            _main = new MainViewModel(_synchronizationService.Community, _synchronizationService);
+
+            MessageBoardSelectionModel messageBoardSelectionModel = new MessageBoardSelectionModel();
+            _main = new MainViewModel(_synchronizationService.Community, messageBoardSelectionModel, _synchronizationService);
         }
 
         public object Main
