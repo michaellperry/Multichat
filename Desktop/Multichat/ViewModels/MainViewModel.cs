@@ -11,20 +11,45 @@ namespace Multichat.ViewModels
 {
     public class MainViewModel
     {
+        public enum SynchronizationStatus
+        {
+            Good,
+            Synchronizing,
+            Bad
+        }
+
         private Community _community;
         private MessageBoardSelectionModel _selection;
-        private SynchronizationService _synhronizationService;
+        private SynchronizationService _synchronizationService;
 
-        public MainViewModel(Community community, MessageBoardSelectionModel selection, SynchronizationService synhronizationService)
+        public MainViewModel(Community community, MessageBoardSelectionModel selection, SynchronizationService synchronizationService)
         {
             _selection = selection;
             _community = community;
-            _synhronizationService = synhronizationService;
+            _synchronizationService = synchronizationService;
         }
 
-        public bool Synchronizing
+        public SynchronizationStatus Status
         {
-            get { return _synhronizationService.Synchronizing; }
+            get
+            {
+                return
+                    _synchronizationService.LastException != null
+                        ? SynchronizationStatus.Bad :
+                    _synchronizationService.Synchronizing
+                        ? SynchronizationStatus.Synchronizing
+                        : SynchronizationStatus.Good;
+            }
+        }
+
+        public string LastException
+        {
+            get
+            {
+                return _synchronizationService.LastException == null
+                    ? null
+                    : _synchronizationService.LastException.Message;
+            }
         }
 
         public string SelectorTitle
@@ -39,7 +64,7 @@ namespace Multichat.ViewModels
 
         public SelectorViewModel Selector
         {
-            get { return new SelectorViewModel(_synhronizationService.Individual, _selection); }
+            get { return new SelectorViewModel(_synchronizationService.Individual, _selection); }
         }
 
         public IEnumerable<MessageViewModel> Messages

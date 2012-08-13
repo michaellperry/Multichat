@@ -14,7 +14,7 @@ namespace Multichat.ViewModels
             _messageBoard = messageBoard;
         }
 
-        public MessageBoard MessageBoard
+        internal MessageBoard MessageBoard
         {
             get { return _messageBoard; }
         }
