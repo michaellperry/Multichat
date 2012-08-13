@@ -27,6 +27,16 @@ namespace Multichat.ViewModels
             get { return _synhronizationService.Synchronizing; }
         }
 
+        public string SelectorTitle
+        {
+            get
+            {
+                return _selection.SelectedMessageBoard == null
+                    ? "<Click to join a message board>"
+                    : _selection.SelectedMessageBoard.Topic;
+            }
+        }
+
         public SelectorViewModel Selector
         {
             get { return new SelectorViewModel(_synhronizationService.Individual, _selection); }
@@ -36,9 +46,12 @@ namespace Multichat.ViewModels
         {
             get
             {
-                return
-                    from message in _selection.SelectedMessageBoard.Messages
-                    select new MessageViewModel(message);
+                if (_selection.SelectedMessageBoard == null)
+                    return Enumerable.Empty<MessageViewModel>();
+                else
+                    return
+                        from message in _selection.SelectedMessageBoard.Messages
+                        select new MessageViewModel(message);
             }
         }
 

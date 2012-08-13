@@ -1,9 +1,53 @@
-﻿<Window x:Class="Multichat.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Multichat.MainWindow"
         Title="MainWindow" Height="350" Width="525"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
-    <Grid>
-        
+	<Window.Resources>
+		<DataTemplate x:Key="MessageViewModelTemplate">
+			<StackPanel>
+				<TextBlock Text="{Binding Text}"/>
+			</StackPanel>
+		</DataTemplate>
+		<DataTemplate x:Key="MessageBoardViewModelTemplate">
+			<StackPanel>
+				<TextBlock Text="{Binding Topic}"/>
+			</StackPanel>
+		</DataTemplate>
+	</Window.Resources>
+    <Grid d:DataContext="{d:DesignData /SampleData/MainViewModelSampleData.xaml}">
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="Auto"/>
+    		<RowDefinition Height="0.782*"/>
+    		<RowDefinition Height="Auto"/>
+    	</Grid.RowDefinitions>
+    	<ListBox ItemTemplate="{DynamicResource MessageViewModelTemplate}" ItemsSource="{Binding Messages}" Grid.Row="1"/>
+    	<Grid Grid.Row="2">
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition Width="232.104"/>
+    			<ColumnDefinition/>
+    		</Grid.ColumnDefinitions>
+    		<TextBox Margin="8,8,0,8" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" d:LayoutOverrides="Height"/>
+    		<Button Content="Send" Grid.Column="1" HorizontalAlignment="Left" Margin="8" Width="75" d:LayoutOverrides="Height" Command="{Binding Send}"/>
+    	</Grid>
+    	<StackPanel HorizontalAlignment="Left" Margin="8,8,0,8" Orientation="Vertical" Width="182.42" d:LayoutOverrides="Height">
+    		<TextBlock Text="{Binding SelectorTitle}" VerticalAlignment="Top" d:LayoutOverrides="Width" MouseDown="SelectorTitle_MouseDown"/>
+    		<Popup x:Name="SelectorPopup">
+    			<Grid Background="#FFE5E5E5" Height="206" Width="244" DataContext="{Binding Selector}">
+    				<Grid.ColumnDefinitions>
+    					<ColumnDefinition Width="0.668*"/>
+    					<ColumnDefinition Width="Auto"/>
+    				</Grid.ColumnDefinitions>
+    				<Grid.RowDefinitions>
+    					<RowDefinition Height="0.5*"/>
+    					<RowDefinition Height="Auto"/>
+    				</Grid.RowDefinitions>
+    				<TextBox Margin="4,4,0,0" Grid.Row="1" Text="{Binding Topic, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+    				<Button Content="Join" Margin="4" Grid.Row="1" Command="{Binding JoinMessageBoard}" VerticalAlignment="Top" Grid.Column="1" Width="50" Click="JoinButton_Click"/>
+    				<ListBox ItemTemplate="{DynamicResource MessageBoardViewModelTemplate}" ItemsSource="{Binding MessageBoards}" Margin="4,4,4,0" SelectedItem="{Binding SelectedMessageBoard}" Grid.ColumnSpan="2" SelectionChanged="MessageBoardListBox_SelectionChanged"/>
+    			</Grid>
+    		</Popup>
+    	</StackPanel>
     </Grid>
 </Window>

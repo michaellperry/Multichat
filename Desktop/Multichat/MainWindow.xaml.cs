@@ -23,5 +23,20 @@ namespace Multichat
         {
             InitializeComponent();
         }
+
+        private void SelectorTitle_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            SelectorPopup.IsOpen = !SelectorPopup.IsOpen;
+        }
+
+        private void JoinButton_Click(object sender, RoutedEventArgs e)
+        {
+            SelectorPopup.IsOpen = false;
+        }
+
+        private void MessageBoardListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelectorPopup.IsOpen = false;
+        }
     }
 }

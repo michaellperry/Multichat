@@ -1,0 +1,77 @@
+﻿<Multichat_ViewModels:MainViewModel xmlns:Multichat_ViewModels="clr-namespace:Multichat.ViewModels" xmlns:Multichat_Model="clr-namespace:Multichat.Model;assembly=Multichat.Model" Synchronizing="True" Text="Vestibulum venenatis" SelectorTitle="Maecenas aenean mauris praesent">
+	<Multichat_ViewModels:MainViewModel.Messages>
+		<Multichat_ViewModels:MessageViewModel Text="Vestibulum class curabitur curae aliquam"/>
+		<Multichat_ViewModels:MessageViewModel Text="Adipiscing cras parturient"/>
+		<Multichat_ViewModels:MessageViewModel Text="Phasellus nam integer consequat vestibulum"/>
+		<Multichat_ViewModels:MessageViewModel Text="Vestibulum donec duis"/>
+		<Multichat_ViewModels:MessageViewModel Text="Nunc maecenas aenean adipiscing"/>
+		<Multichat_ViewModels:MessageViewModel Text="Quisque convallis mauris vivamus etiam"/>
+		<Multichat_ViewModels:MessageViewModel Text="Praesent dignissim"/>
+		<Multichat_ViewModels:MessageViewModel Text="Amet nullam aptent sed fusce"/>
+		<Multichat_ViewModels:MessageViewModel Text="Elementum dis est accumsan facilisis"/>
+		<Multichat_ViewModels:MessageViewModel Text="Fermentum auctor"/>
+	</Multichat_ViewModels:MainViewModel.Messages>
+	<Multichat_ViewModels:MainViewModel.Selector>
+		<Multichat_ViewModels:SelectorViewModel Topic="Ultricies senectus feugiat montes gravida">
+			<Multichat_ViewModels:SelectorViewModel.MessageBoards>
+				<Multichat_ViewModels:MessageBoardViewModel Topic="Dictumst eleifend morbi parturient aliquam">
+					<Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+						<Multichat_Model:MessageBoard Topic="Fringilla bibendum ante lorem"/>
+					</Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+				</Multichat_ViewModels:MessageBoardViewModel>
+				<Multichat_ViewModels:MessageBoardViewModel Topic="Hac faucibus leo vestibulum nulla">
+					<Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+						<Multichat_Model:MessageBoard Topic="Aliquet habitasse hendrerit himenaeos facilisi"/>
+					</Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+				</Multichat_ViewModels:MessageBoardViewModel>
+				<Multichat_ViewModels:MessageBoardViewModel Topic="Adipiscing congue">
+					<Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+						<Multichat_Model:MessageBoard Topic="Mus vestibulum arcu"/>
+					</Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+				</Multichat_ViewModels:MessageBoardViewModel>
+				<Multichat_ViewModels:MessageBoardViewModel Topic="Diam nec vestibulum vestibulum">
+					<Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+						<Multichat_Model:MessageBoard Topic="Cursus parturient"/>
+					</Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+				</Multichat_ViewModels:MessageBoardViewModel>
+				<Multichat_ViewModels:MessageBoardViewModel Topic="Eget blandit augue lectus libero">
+					<Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+						<Multichat_Model:MessageBoard Topic="Habitant proin dictum"/>
+					</Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+				</Multichat_ViewModels:MessageBoardViewModel>
+				<Multichat_ViewModels:MessageBoardViewModel Topic="Dolor commodo lobortis conubia elit">
+					<Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+						<Multichat_Model:MessageBoard Topic="Inceptos imperdiet adipiscing interdum"/>
+					</Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+				</Multichat_ViewModels:MessageBoardViewModel>
+				<Multichat_ViewModels:MessageBoardViewModel Topic="Parturient malesuada litora penatibus">
+					<Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+						<Multichat_Model:MessageBoard Topic="Nascetur pharetra ligula"/>
+					</Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+				</Multichat_ViewModels:MessageBoardViewModel>
+				<Multichat_ViewModels:MessageBoardViewModel Topic="Pulvinar vestibulum porttitor luctus">
+					<Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+						<Multichat_Model:MessageBoard Topic="Cubilia dapibus placerat"/>
+					</Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+				</Multichat_ViewModels:MessageBoardViewModel>
+				<Multichat_ViewModels:MessageBoardViewModel Topic="Mattis sagittis">
+					<Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+						<Multichat_Model:MessageBoard Topic="Fames vestibulum egestas adipiscing magnis"/>
+					</Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+				</Multichat_ViewModels:MessageBoardViewModel>
+				<Multichat_ViewModels:MessageBoardViewModel Topic="Euismod erat mauris">
+					<Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+						<Multichat_Model:MessageBoard Topic="Non tincidunt enim"/>
+					</Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+				</Multichat_ViewModels:MessageBoardViewModel>
+			</Multichat_ViewModels:SelectorViewModel.MessageBoards>
+			<Multichat_ViewModels:SelectorViewModel.SelectedMessageBoard>
+				<Multichat_ViewModels:MessageBoardViewModel Topic="Parturient mollis tristique">
+					<Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+						<Multichat_Model:MessageBoard Topic="Eros nibh"/>
+					</Multichat_ViewModels:MessageBoardViewModel.MessageBoard>
+				</Multichat_ViewModels:MessageBoardViewModel>
+			</Multichat_ViewModels:SelectorViewModel.SelectedMessageBoard>
+		</Multichat_ViewModels:SelectorViewModel>
+	</Multichat_ViewModels:MainViewModel.Selector>
+</Multichat_ViewModels:MainViewModel>

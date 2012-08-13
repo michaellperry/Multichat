@@ -60,8 +60,10 @@ namespace Multichat.ViewModels
                     .When(() => !string.IsNullOrWhiteSpace(_selection.Topic))
                     .Do(delegate
                     {
-                        _individual.JoinMessageBoard(_selection.Topic);
+                        MessageBoard messageBoard =
+                            _individual.JoinMessageBoard(_selection.Topic);
                         _selection.Topic = string.Empty;
+                        _selection.SelectedMessageBoard = messageBoard;
                     });
             }
         }
