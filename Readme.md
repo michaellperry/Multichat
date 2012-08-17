@@ -6,3 +6,6 @@ http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=10801
 
 SQL Server CE 3.5
 http://www.microsoft.com/en-us/download/details.aspx?id=5783
+
+SQL Express 2008 R2
+https://www.microsoft.com/en-us/download/details.aspx?id=23650

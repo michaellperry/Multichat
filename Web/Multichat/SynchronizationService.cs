@@ -19,7 +19,7 @@ namespace Multichat
         public void Initialize()
         {
             HTTPConfigurationProvider configurationProvider = new HTTPConfigurationProvider();
-            string correspondenceConnectionString = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
+            string correspondenceConnectionString = ConfigurationManager.ConnectionStrings["Correspondence"].ConnectionString;
             _community = new Community(new SQLStorageStrategy(correspondenceConnectionString).UpgradeDatabase())
                 .AddAsynchronousCommunicationStrategy(new BinaryHTTPAsynchronousCommunicationStrategy(configurationProvider))
                 .Register<CorrespondenceModel>()
