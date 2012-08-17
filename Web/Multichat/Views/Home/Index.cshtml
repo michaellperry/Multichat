@@ -1,5 +1,13 @@
-﻿@{
+﻿@model Multichat.Models.MessageBoardRequest
+@{
     ViewBag.Title = "Multichat";
 }
 
 <h2>Multichat</h2>
+
+@using (Html.BeginForm())
+{
+    <p>Enter a message board topic:</p>
+    @Html.TextBoxFor(m => m.Topic)
+    <input type="submit" value="Join" />
+}
