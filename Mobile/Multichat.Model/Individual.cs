@@ -22,10 +22,11 @@ namespace Multichat.Model
             }
         }
 
-        public void JoinMessageBoard(string topic)
+        public MessageBoard JoinMessageBoard(string topic)
         {
             MessageBoard messageBoard = Community.AddFact(new MessageBoard(topic));
             Community.AddFact(new Share(this, messageBoard));
+            return messageBoard;
         }
     }
 }
