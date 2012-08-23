@@ -85,6 +85,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="..\..\Web\Multichat\Models\MessageViewModel.cs">
+      <Link>MessageViewModel.cs</Link>
+    </Compile>
     <Compile Include="HTTPConfigurationProvider.cs" />
     <Compile Include="Models\MessageBoardSelectionModel.cs" />
     <Compile Include="SynchronizationService.cs" />

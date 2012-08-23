@@ -1,0 +1,21 @@
+﻿@model Multichat.Models.MessageBoardViewModel
+
+@{
+    ViewBag.Title = @Model.Topic;
+}
+
+<h2>@Model.Topic</h2>
+
+@foreach (var message in @Model.Messages)
+{
+    <p>@message.Text</p>
+}
+
+<hr />
+
+@using (Html.BeginForm())
+{
+    <p>Send a message:</p>
+    <input type="text" name="Text" />
+    <input type="submit" value="Send" />
+}

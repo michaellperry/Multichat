@@ -28,6 +28,7 @@ namespace Multichat
                 .AddAsynchronousCommunicationStrategy(new BinaryHTTPAsynchronousCommunicationStrategy(configurationProvider))
                 .Register<CorrespondenceModel>()
                 .Subscribe(() => _individual)
+                .Subscribe(() => _individual.MessageBoards)
                 ;
 
             _individual = _community.LoadFact<Individual>(ThisIndividual);
