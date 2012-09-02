@@ -24,6 +24,7 @@ namespace Multichat
 	                .SetNotificationStrategy(new WindowsPhoneNotificationStrategy(configurationProvider)))
                 .Register<CorrespondenceModel>()
                 .Subscribe(() => _individual)
+                .Subscribe(() => _individual.MessageBoards)
                 ;
 
             _individual = _community.AddFact(new Individual(GetAnonymousUserId()));

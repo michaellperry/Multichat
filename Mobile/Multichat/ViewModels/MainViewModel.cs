@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 using Multichat.Model;
 using Multichat.Models;
+using UpdateControls.XAML;
 
 namespace Multichat.ViewModels
 {
@@ -47,6 +50,28 @@ namespace Multichat.ViewModels
                 _selection.SelectedMessageBoard = value == null
                     ? null
                     : value.MessageBoard;
+            }
+        }
+
+        public string Text
+        {
+            get { return _selection.Text; }
+            set { _selection.Text = value; }
+        }
+
+        public ICommand SendMessage
+        {
+            get
+            {
+                return MakeCommand
+                    .When(() =>
+                        _selection.SelectedMessageBoard != null &&
+                        !String.IsNullOrEmpty(_selection.Text))
+                    .Do(delegate
+                    {
+                        _selection.SelectedMessageBoard.SendMessage(_selection.Text);
+                        _selection.Text = null;
+                    });
             }
         }
     }
