@@ -26,6 +26,27 @@ namespace Multichat.ViewModels
             get { return _synhronizationService.Synchronizing; }
         }
 
+        public string LastException
+        {
+            get
+            {
+                Exception lastException = _synhronizationService.LastException;
+                return lastException == null
+                    ? null
+                    : lastException.Message;
+            }
+        }
+
+        public bool ShowInstructions
+        {
+            get
+            {
+                return
+                    !_synhronizationService.Synchronizing &&
+                    !_individual.MessageBoards.Any();
+            }
+        }
+
         public IEnumerable<MessageBoardViewModel> MessageBoards
         {
             get
