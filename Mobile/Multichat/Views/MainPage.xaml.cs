@@ -19,5 +19,10 @@ namespace Multichat.Views
         {
             InitializeComponent();
         }
+
+        private void Add_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/JoinMessageBoardView.xaml", UriKind.Relative));
+        }
     }
 }

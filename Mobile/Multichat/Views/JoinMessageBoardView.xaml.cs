@@ -11,12 +11,11 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace Multichat
+namespace Multichat.Views
 {
-    public partial class MainPage : PhoneApplicationPage
+    public partial class JoinMessageBoardView : PhoneApplicationPage
     {
-        // Constructor
-        public MainPage()
+        public JoinMessageBoardView()
         {
             InitializeComponent();
         }
