@@ -22,7 +22,7 @@ namespace Multichat.ViewModels
             if (!DesignerProperties.IsInDesignTool)
                 _synchronizationService.Initialize();
             _selection = new MessageBoardSelectionModel();
-            _main = new MainViewModel(_synchronizationService.Individual, _synchronizationService);
+            _main = new MainViewModel(_synchronizationService.Individual, _synchronizationService, _selection);
             _settings = new SettingsViewModel(_synchronizationService.Individual);
             _join = new JoinMessageBoardViewModel(_selection, _synchronizationService.Individual);
             _send = new SendMessageViewModel(_selection, _synchronizationService.Individual);

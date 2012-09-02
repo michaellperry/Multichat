@@ -1,23 +1,56 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
+using Multichat.ViewModels;
+using UpdateControls;
+using UpdateControls.XAML;
 
 namespace Multichat.Views
 {
     public partial class JoinMessageBoardView : PhoneApplicationPage
     {
+        private Dependent _depCanJoin;
+
         public JoinMessageBoardView()
         {
             InitializeComponent();
+
+            _depCanJoin = new Dependent(UpdateOKButton);
+            _depCanJoin.Invalidated += delegate
+            {
+                Dispatcher.BeginInvoke(delegate
+                {
+                    _depCanJoin.OnGet();
+                });
+            };
+            _depCanJoin.OnGet();
+        }
+
+        private void UpdateOKButton()
+        {
+            var viewModel = ForView.Unwrap<JoinMessageBoardViewModel>(DataContext);
+            var okButton = ApplicationBar.Buttons
+                .OfType<ApplicationBarIconButton>()
+                .FirstOrDefault(button => button.Text == "ok");
+            if (viewModel != null && okButton != null)
+                okButton.IsEnabled = viewModel.Join.CanExecute(null);
+        }
+
+        private void OK_Click(object sender, EventArgs e)
+        {
+            JoinMessageBoardViewModel viewModel = ForView.Unwrap<JoinMessageBoardViewModel>(DataContext);
+            if (viewModel != null)
+                viewModel.Join.Execute(null);
+            NavigationService.GoBack();
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            JoinMessageBoardViewModel viewModel = ForView.Unwrap<JoinMessageBoardViewModel>(DataContext);
+            if (viewModel != null)
+                viewModel.Topic = null;
+            NavigationService.GoBack();
         }
     }
 }

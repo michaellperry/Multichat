@@ -11,10 +11,11 @@ namespace Multichat.ViewModels
         private SynchronizationService _synhronizationService;
         private MessageBoardSelectionModel _selection;
 
-        public MainViewModel(Individual individual, SynchronizationService synhronizationService)
+        public MainViewModel(Individual individual, SynchronizationService synhronizationService, MessageBoardSelectionModel selection)
         {
             _individual = individual;
             _synhronizationService = synhronizationService;
+            _selection = selection;
         }
 
         public bool Synchronizing
