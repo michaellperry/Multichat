@@ -58,20 +58,11 @@ namespace Multichat.ViewModels
             }
         }
 
-        public MessageBoardViewModel SelectedMessageBoard
+        public void SetSelectedMessageBoard(MessageBoardViewModel value)
         {
-            get
-            {
-                return _selection.SelectedMessageBoard == null
-                    ? null
-                    : new MessageBoardViewModel(_selection.SelectedMessageBoard);
-            }
-            set
-            {
-                _selection.SelectedMessageBoard = value == null
-                    ? null
-                    : value.MessageBoard;
-            }
+            _selection.SelectedMessageBoard = value == null
+                ? null
+                : value.MessageBoard;
         }
 
         public string Text

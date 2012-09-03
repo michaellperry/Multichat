@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using UpdateControls.XAML;
 using Multichat.ViewModels;
+using UpdateControls.XAML;
 
 namespace Multichat.Views
 {
@@ -48,6 +40,19 @@ namespace Multichat.Views
         private void Add_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/Views/JoinMessageBoardView.xaml", UriKind.Relative));
+        }
+
+        private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count > 0)
+            {
+                var viewModel = ForView.Unwrap<MainViewModel>(DataContext);
+                var messageBoard = ForView.Unwrap<MessageBoardViewModel>(e.AddedItems[0]);
+                if (viewModel != null && messageBoard != null)
+                {
+                    viewModel.SetSelectedMessageBoard(messageBoard);
+                }
+            }
         }
     }
 }

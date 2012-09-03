@@ -96,7 +96,13 @@
         <!--Pivot Control-->
         <toolkit:PerformanceProgressBar VerticalAlignment="Top" IsIndeterminate="{Binding Synchronizing}"/>
         <!--Pivot Control-->
-        <controls:Pivot Title="MULTICHAT" ItemTemplate="{StaticResource MessageBoardViewModelTemplate}" ItemsSource="{Binding MessageBoards}" SelectedItem="{Binding SelectedMessageBoard, Mode=TwoWay}" HeaderTemplate="{StaticResource ListPivotHeaderTemplate}" Style="{StaticResource PivotStyle}"/>
+        <controls:Pivot 
+            Title="MULTICHAT" 
+            ItemTemplate="{StaticResource MessageBoardViewModelTemplate}" 
+            ItemsSource="{Binding MessageBoards}" 
+            HeaderTemplate="{StaticResource ListPivotHeaderTemplate}" 
+            Style="{StaticResource PivotStyle}"
+            SelectionChanged="Pivot_SelectionChanged"/>
     </Grid>
     
 </phone:PhoneApplicationPage>

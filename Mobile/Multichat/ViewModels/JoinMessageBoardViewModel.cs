@@ -31,7 +31,6 @@ namespace Multichat.ViewModels
                     .Do(delegate
                     {
                         var board = _individual.JoinMessageBoard(_selection.Topic);
-                        _selection.SelectedMessageBoard = board;
                         _selection.Topic = null;
                     });
             }
