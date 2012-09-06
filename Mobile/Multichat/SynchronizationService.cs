@@ -77,7 +77,7 @@ namespace Multichat
         {
             string anid = UserExtendedProperties.GetValue("ANID") as string;
             string anonymousUserId = String.IsNullOrEmpty(anid)
-                ? "test:user2"
+                ? "test:user1"
                 : "liveid:" + ParseAnonymousId(anid);
             return anonymousUserId;
         }
