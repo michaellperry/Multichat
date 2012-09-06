@@ -37,7 +37,7 @@
         		<RowDefinition Height="*"/>
         	</Grid.RowDefinitions>
         	<TextBlock HorizontalAlignment="Left" Margin="8" TextWrapping="Wrap" Text="Topic:" FontSize="{StaticResource PhoneFontSizeLarge}" d:LayoutOverrides="Height"/>
-            <TextBox Text="{Binding Topic, Mode=TwoWay}" Grid.Row="1">
+            <TextBox Text="{Binding Topic, Mode=TwoWay}" Grid.Row="1" InputScope="Text">
             	<i:Interaction.Behaviors>
                     <itzben:UpdateOnTextChangedBehavior/>
             	</i:Interaction.Behaviors>

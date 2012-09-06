@@ -1,2 +1,1 @@
-Spell check message and topic.
 Hide watermark if instructions are visible.

@@ -58,7 +58,7 @@
 							</Grid.RowDefinitions>
 							<ContentPresenter ContentTemplate="{TemplateBinding TitleTemplate}" Content="{TemplateBinding Title}" Margin="24,17,0,-7"/>
 							<controlsPrimitives:PivotHeadersControl x:Name="HeadersListElement" Grid.Row="1"/>
-							<TextBox x:Name="Message" Text="{Binding Text, Mode=TwoWay}" Grid.Row="2" Visibility="{Binding ShowInstructions, Converter={StaticResource VisibleWhenFalseConverter}}">
+							<TextBox x:Name="Message" Text="{Binding Text, Mode=TwoWay}" Grid.Row="2" Visibility="{Binding ShowInstructions, Converter={StaticResource VisibleWhenFalseConverter}}" InputScope="Text">
 								<i:Interaction.Behaviors>
 									<Itzben:UpdateOnTextChangedBehavior/>
 								</i:Interaction.Behaviors>
