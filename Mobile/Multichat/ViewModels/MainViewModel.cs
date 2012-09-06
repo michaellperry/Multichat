@@ -37,6 +37,11 @@ namespace Multichat.ViewModels
             }
         }
 
+        public bool HasException
+        {
+            get { return _synhronizationService.LastException != null; }
+        }
+
         public bool ShowInstructions
         {
             get
