@@ -94,6 +94,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Behaviors\WatermarkBehavior.cs" />
     <Compile Include="HTTPConfigurationProvider.cs" />
     <Compile Include="Models\MessageBoardSelectionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

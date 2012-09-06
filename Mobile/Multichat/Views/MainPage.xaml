@@ -10,6 +10,7 @@
     xmlns:Itzben="clr-namespace:Itzben;assembly=Itzben"
     xmlns:controlsPrimitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone.Controls"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:Multichat_Behaviors="clr-namespace:Multichat.Behaviors"
     x:Class="Multichat.Views.MainPage" 
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
     SupportedOrientations="Portrait"  Orientation="Portrait"
@@ -57,11 +58,16 @@
 							</Grid.RowDefinitions>
 							<ContentPresenter ContentTemplate="{TemplateBinding TitleTemplate}" Content="{TemplateBinding Title}" Margin="24,17,0,-7"/>
 							<controlsPrimitives:PivotHeadersControl x:Name="HeadersListElement" Grid.Row="1"/>
-							<TextBox Text="{Binding Text, Mode=TwoWay}" Grid.Row="2" Visibility="{Binding ShowInstructions, Converter={StaticResource VisibleWhenFalseConverter}}">
+							<TextBox x:Name="Message" Text="{Binding Text, Mode=TwoWay}" Grid.Row="2" Visibility="{Binding ShowInstructions, Converter={StaticResource VisibleWhenFalseConverter}}">
 								<i:Interaction.Behaviors>
 									<Itzben:UpdateOnTextChangedBehavior/>
 								</i:Interaction.Behaviors>
 							</TextBox>
+							<TextBlock HorizontalAlignment="Left" Margin="19,19,0,0" TextWrapping="Wrap" Text="Enter a message" Grid.Row="2" FontSize="{StaticResource PhoneFontSizeMediumLarge}" Foreground="{StaticResource PhoneTextBoxReadOnlyBrush}" VerticalAlignment="Top" IsHitTestVisible="False">
+								<i:Interaction.Behaviors>
+									<Multichat_Behaviors:WatermarkBehavior WatermarkedTextBox="{Binding ElementName=Message}"/>
+								</i:Interaction.Behaviors>
+							</TextBlock>
 							<ItemsPresenter x:Name="PivotItemPresenter" Margin="{TemplateBinding Padding}" Grid.Row="3"/>
 							<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Press plus to add a topic." FontSize="{StaticResource PhoneFontSizeExtraExtraLarge}" Grid.RowSpan="4" Width="480" VerticalAlignment="Center" TextAlignment="Center" Visibility="{Binding ShowInstructions, Converter={StaticResource VisibleWhenTrueConverter}}"/>
 						</Grid>
