@@ -8,6 +8,9 @@ using UpdateControls.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Multichat.Model;
+using System.IO;
+using System.Web.Hosting;
+using UpdateControls.Correspondence.FileStream;
 
 namespace Multichat
 {
@@ -19,8 +22,15 @@ namespace Multichat
         public void Initialize()
         {
             HTTPConfigurationProvider configurationProvider = new HTTPConfigurationProvider();
-            string correspondenceConnectionString = ConfigurationManager.ConnectionStrings["Correspondence"].ConnectionString;
-            _community = new Community(new SQLStorageStrategy(correspondenceConnectionString).UpgradeDatabase())
+
+            // TODO: Uncomment these lines to choose a database storage strategy.
+            // string correspondenceConnectionString = ConfigurationManager.ConnectionStrings["Correspondence"].ConnectionString;
+            // var storageStrategy = new SQLStorageStrategy(correspondenceConnectionString).UpgradeDatabase();
+
+            string path = Path.Combine(HostingEnvironment.MapPath("~/App_Data"), "Correspondence");
+            var storageStrategy = FileStreamStorageStrategy.Load(path);
+
+            _community = new Community(storageStrategy)
                 .AddAsynchronousCommunicationStrategy(new BinaryHTTPAsynchronousCommunicationStrategy(configurationProvider))
                 .Register<CorrespondenceModel>()
                 .Subscribe(() => _theDomain)

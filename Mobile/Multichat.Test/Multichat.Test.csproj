@@ -68,11 +68,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\UpdateControls.2.2.1.2\lib\sl4-windowsphone71\UpdateControls.dll</HintPath>
     </Reference>
-    <Reference Include="UpdateControls.Correspondence">
-      <HintPath>..\..\packages\Correspondence.1.4.0.7\lib\SL4-windowsphone71\UpdateControls.Correspondence.dll</HintPath>
+    <Reference Include="UpdateControls.Correspondence, Version=1.4.0.8, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Correspondence.1.4.0.8\lib\SL4-windowsphone71\UpdateControls.Correspondence.dll</HintPath>
     </Reference>
-    <Reference Include="UpdateControls.Correspondence.Memory">
-      <HintPath>..\..\packages\Correspondence.WindowsPhone.UnitTest.1.4.0.7\lib\SL4-windowsphone71\UpdateControls.Correspondence.Memory.dll</HintPath>
+    <Reference Include="UpdateControls.Correspondence.Memory, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Correspondence.WindowsPhone.UnitTest.1.4.0.8\lib\SL4-windowsphone71\UpdateControls.Correspondence.Memory.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
